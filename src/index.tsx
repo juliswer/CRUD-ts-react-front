@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App title="React and Typescript" />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -27,13 +27,24 @@ export function App({title}: Props) {
         <div className="container">
           <a href="/" className="navbar-brand">
             <img src={logo} alt="React Logo" style={{width: '4rem',}} />
-            {title}
+            {title && <h1>{title}</h1>}
           </a>
         </div>
       </nav>
 
       <main className="container p-4">
-        <TaskList tasks={tasks} />
+        <div className="row">
+          <div className="col-md-4">
+            Task Form
+          </div>
+    
+          <div className="col-md-8">
+            <div className="row">
+              <TaskList tasks={tasks} />
+            </div>
+          </div>
+        </div>
+
       </main>
 
     </div>
