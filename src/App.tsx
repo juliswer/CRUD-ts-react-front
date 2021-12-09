@@ -26,7 +26,7 @@ export function App({title}: Props) {
     setTasks([...tasks, {...task, id: getCurrentTimeStamp(), completed: false}])
   }
 
-
+  const deleteATask = (id: number) => tasks.filter(task => task.id !== id);
 
   return (
     <div className="bg-dark text-white" style={{height: '100vh'}}>
