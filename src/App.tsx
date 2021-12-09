@@ -20,9 +20,13 @@ export function App({title}: Props) {
     }
   ])
 
+  const getCurrentTimeStamp = (): number => new Date().getTime();
+
   const addANewTask = (task: Task) => {
-    setTasks([...tasks, task])
+    setTasks([...tasks, {...task, id: getCurrentTimeStamp(), completed: false}])
   }
+
+
 
   return (
     <div className="bg-dark text-white" style={{height: '100vh'}}>
