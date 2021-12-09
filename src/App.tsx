@@ -26,7 +26,7 @@ export function App({title}: Props) {
     setTasks([...tasks, {...task, id: getCurrentTimeStamp(), completed: false}])
   }
 
-  const deleteATask = (id: number) => tasks.filter(task => task.id !== id);
+  const deleteATask = (id: number) => setTasks(tasks.filter(task => task.id !== id));
 
   return (
     <div className="bg-dark text-white" style={{height: '100vh'}}>
@@ -49,7 +49,7 @@ export function App({title}: Props) {
 
           <div className="col-md-8">
             <div className="row">
-              <TaskList tasks={tasks} />
+              <TaskList tasks={tasks} deleteATask={deleteATask} />
             </div>
           </div>
         </div>
