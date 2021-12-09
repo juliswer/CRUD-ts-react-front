@@ -1,4 +1,4 @@
-import {ChangeEvent, FormEvent, useState} from 'react';
+import {ChangeEvent, FormEvent, useState, useRef} from 'react';
 import {AiOutlinePlus} from 'react-icons/ai'
 import { Task } from '../interfaces/Task';
 
@@ -15,6 +15,7 @@ const initialState = {
 
 export default function TaskForm({addANewTask}: Props) {
     const [task, setTask] = useState(initialState)
+    const inputTitle = useRef<HTMLInputElement>(null)
 
     const handleInputChange = ({
         target: {name, value}
@@ -26,6 +27,7 @@ export default function TaskForm({addANewTask}: Props) {
       e.preventDefault()
       addANewTask(task)
       setTask(initialState)
+      inputTitle.current?.focus();
     }
 
   return (
@@ -40,6 +42,8 @@ export default function TaskForm({addANewTask}: Props) {
           className="form-control mb-3 rounded-0 shadow-none border-0"
           onChange={handleInputChange}
           value={task.title}
+          autoFocus
+          ref={inputTitle}
         />
 
         <textarea
